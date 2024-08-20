@@ -1,10 +1,21 @@
+"use client"
+
 import Image from 'next/image'
 
 import LogoImg from '../assets/logo.svg'
 
 import styles from '../styles/Home.module.css'
+import { useEffect } from 'react'
+import { axeAccessibilityReporter } from '@/utils/axeAccessibilityReporter'
+
+
 
 export default function Home() {
+  
+  useEffect(() => {
+    axeAccessibilityReporter()
+  }, [])
+
   return (
     <div>
       <div className={styles.header}>
@@ -27,8 +38,9 @@ export default function Home() {
 
           </a>
         </div>
+      </div>
 
-        <div className="content">
+      <div className={styles.content}>
           <h2>Desenvolvendo uma web acessivel</h2>
 
           <h4>Protocolos e diretivas orientam o desenvolvimento  de tecnologias acessiveis,
@@ -40,7 +52,9 @@ export default function Home() {
 
           <h3>O que é acessibilidade, afinal?</h3>
         </div>
-      </div>
+
     </div>
+
+    
   );
 }
