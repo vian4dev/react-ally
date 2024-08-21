@@ -19,10 +19,10 @@ export default function Home() {
   return (
     <>
       <header className={styles.header} aria-label="Navegação">
-        <Image src={LogoImg} width={284 / 2} alt="" />
+        <Image src={LogoImg} width={284 / 2} alt="Blog da Rocketseat" />
 
         <div className={styles.nav}>
-          <a href="https://github.com/vian4dev">
+          <a href="https://github.com/vian4dev" aria-label="Acessar Github">
             <svg
               stroke="currentColor"
               fill="currentColor"
@@ -57,7 +57,7 @@ export default function Home() {
         </article>
       </main>
 
-      <footer className={styles.header} aria-label="Rodapé">
+      <footer className={styles.footer} aria-label="Rodapé">
         <Image src={LogoImg} width={284 / 2} alt="" />
 
         <div className={styles.nav}>
