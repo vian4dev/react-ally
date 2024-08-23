@@ -5,16 +5,24 @@ import Image from 'next/image'
 import LogoImg from '../assets/logo.svg'
 
 import styles from '../styles/Home.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { axeAccessibilityReporter } from '@/utils/axeAccessibilityReporter'
 {/* import { Head } from 'next/document' */ }
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const modalRef = useRef(null)
 
   function handleModalOpen() {
     setIsModalOpen(true)
   }
+
+  useEffect(() => {
+    if (isModalOpen) {
+      console.log(modalRef.current); // Verifique se está definido e é o elemento esperado
+      modalRef?.current?.focus();
+    }
+  }, [isModalOpen]);
 
   useEffect(() => {
     axeAccessibilityReporter()
@@ -72,16 +80,24 @@ export default function Home() {
         <Image src={LogoImg} width={284 / 2} alt="" />
 
         <div className={styles.nav}>
-          <button type="button" onClick={handleModalOpen}>
+          <button type="button" onClick={handleModalOpen} aria-controls="modal1">
             Termos de uso
           </button>
         </div>
       </footer>
 
       {isModalOpen && (
-        <div className={styles.modal}>
-          <h2>Termo de uso</h2>
-          <p>Esses são os termos de uso</p>
+        <div 
+        id="modal1"
+        ref={modalRef}
+        className={styles.modal} 
+        role="dialog" 
+        aria-labelledby='modal1Title'
+        aria-describedby='modal1Description'
+        tabIndex={-1}
+        >
+          <h2 id="modal1Title">Termo de uso</h2>
+          <p id="modal1Description">Esses são os termos de uso</p>
         </div>
       )}
     </>
