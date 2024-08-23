@@ -22,8 +22,12 @@
     padding: 24px 20px;
 }
 
-.content h2 {
+.content h1 {
     margin-bottom: 20px;
+}
+
+.content h2 {
+    font-size: 18px;
 }
 
 .content p {
@@ -40,12 +44,25 @@
     margin: 0 auto;
 
     padding: 24px 20px;
+    font-size: 1rem;
 }
 
-.footer a {
+.footer button {
     padding: 1rem 2rem;
     background: #202024;
     border-radius: 5px;
 
     color: #996dff;
+}
+
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 120px;
+    border-radius: 5px;
+    color: #333;
 }

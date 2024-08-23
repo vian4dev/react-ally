@@ -5,12 +5,16 @@ import Image from 'next/image'
 import LogoImg from '../assets/logo.svg'
 
 import styles from '../styles/Home.module.css'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { axeAccessibilityReporter } from '@/utils/axeAccessibilityReporter'
-
-
+{/* import { Head } from 'next/document' */ }
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  function handleModalOpen() {
+    setIsModalOpen(true)
+  }
 
   useEffect(() => {
     axeAccessibilityReporter()
@@ -18,6 +22,13 @@ export default function Home() {
 
   return (
     <>
+
+      {/* 
+     <Head>
+       <title>Desenvolvendo uma web acessivel | Rocketseat Blog</title>
+     </Head>
+      */}
+
       <header className={styles.header} aria-label="Navegação">
         <Image src={LogoImg} width={284 / 2} alt="Blog da Rocketseat" />
 
@@ -43,7 +54,7 @@ export default function Home() {
       <main>
         <article className={styles.content}>
           <header>
-            <h2>Desenvolvendo uma web acessivel</h2>
+            <h1>Desenvolvendo uma web acessivel</h1>
 
             <h4>Protocolos e diretivas orientam o desenvolvimento  de tecnologias acessiveis,
               mas é preciso para além de tudo isso.</h4>
@@ -61,11 +72,18 @@ export default function Home() {
         <Image src={LogoImg} width={284 / 2} alt="" />
 
         <div className={styles.nav}>
-          <a href="https://github.com/vian4dev">
+          <button type="button" onClick={handleModalOpen}>
             Termos de uso
-          </a>
+          </button>
         </div>
       </footer>
+
+      {isModalOpen && (
+        <div className={styles.modal}>
+          <h2>Termo de uso</h2>
+          <p>Esses são os termos de uso</p>
+        </div>
+      )}
     </>
   );
 }
