@@ -5,11 +5,13 @@ import Image from 'next/image'
 import LogoImg from '../assets/logo.svg'
 
 import styles from '../styles/Home.module.css'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect } from 'react'
 import { axeAccessibilityReporter } from '@/utils/axeAccessibilityReporter'
+import * as Dialog from '@radix-ui/react-dialog';
 {/* import { Head } from 'next/document' */ }
 
 export default function Home() {
+  {/* Botão antigo
   const [isModalOpen, setIsModalOpen] = useState(false)
   const modalRef = useRef(null)
 
@@ -23,6 +25,7 @@ export default function Home() {
       modalRef?.current?.focus();
     }
   }, [isModalOpen]);
+  */}
 
   useEffect(() => {
     axeAccessibilityReporter()
@@ -76,16 +79,46 @@ export default function Home() {
         </article>
       </main>
 
-      <footer className={styles.footer} aria-label="Rodapé">
-        <Image src={LogoImg} width={284 / 2} alt="" />
+      <footer className={styles.footer}>
+        <Image src={LogoImg} width={284 / 2} alt="Blog da Rocketseat" />
+        
+        <nav className={styles.nav} aria-label="Rodapé">
+          <Dialog.Root>
+            <Dialog.Trigger asChild>
+              <button type="button">
+                Termos de uso
+              </button>
+            </Dialog.Trigger>
+            <Dialog.Portal>
+              <Dialog.Overlay className={styles.overlay} />
 
+              <Dialog.Content className={styles.modal}>
+                <Dialog.Title>Termo de Uso</Dialog.Title>
+                <Dialog.Description>Esses são os termos de uso</Dialog.Description>
+
+                <Dialog.Close asChild>
+                  <button className={styles.closeModalButton}>
+                    Fechar
+                  </button>
+                </Dialog.Close>
+              </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog.Root>
+
+          {/*
         <div className={styles.nav}>
+          
           <button type="button" onClick={handleModalOpen} aria-controls="modal1">
             Termos de uso
           </button>
+          
         </div>
+        */}
+
+        </nav>
       </footer>
 
+      {/*
       {isModalOpen && (
         <div 
         id="modal1"
@@ -100,6 +133,7 @@ export default function Home() {
           <p id="modal1Description">Esses são os termos de uso</p>
         </div>
       )}
+      */}
     </>
   );
 }
