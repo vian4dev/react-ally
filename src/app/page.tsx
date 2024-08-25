@@ -81,7 +81,7 @@ export default function Home() {
 
       <footer className={styles.footer}>
         <Image src={LogoImg} width={284 / 2} alt="Blog da Rocketseat" />
-        
+
         <nav className={styles.nav} aria-label="Rodapé">
           <Dialog.Root>
             <Dialog.Trigger asChild>

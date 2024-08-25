@@ -24,13 +24,15 @@
 # React Ally
 
 ## ✒️ Descrição
-(Em breve)
+Nesse projeto, foi desenvolvida uma aplicação em React com o objetivo de aplicar conceitos de acessibilidade na web, utilizando a biblioteca Radix-UI. O foco foi garantir uma experiência inclusiva e funcional para todos os usuários, independentemente de suas habilidades.
 
 ## 🚀 Tecnologias utilizadas
 <div style="display: inline_block"><br>
   <img align="center" alt="img-typescript" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg">
   
   <img align="center" alt="img-react" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
+
+  <img align="center" alt="img-css" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
 </div>
 
 ## 📷 Demostração
